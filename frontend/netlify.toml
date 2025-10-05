@@ -1,2 +1,10 @@
+[build]
+  publish = "."
+  command = "echo 'No build step required'"
+
 [[plugins]]
   package = "netlify-plugin-replace-env"
+
+[plugins.inputs]
+  include = ["**/*.html", "js/**/*.js"]
+  debug = true
