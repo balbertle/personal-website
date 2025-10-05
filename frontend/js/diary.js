@@ -1,6 +1,12 @@
 import { fetchAndDisplayDiary, fetchAndDisplayProjects } from './helpers.js';
 
-const API_URL = 'http://localhost:3000/api/journal';
+let API_BASE_URL = "__API_URL__";
+
+if (API_BASE_URL.startsWith("__")) {
+  API_BASE_URL = "http://localhost:3000";
+}
+
+const API_URL = `${API_BASE_URL}/api/journal`;
 const projectsContainer = document.getElementById('projects-container');
 
 

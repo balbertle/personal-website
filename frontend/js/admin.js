@@ -1,4 +1,9 @@
-const API_URL = "https://localhost:3000/api/projects";
+let API_BASE_URL = "__API_URL__";
+
+if (API_BASE_URL.startsWith("__")) {
+  API_BASE_URL = "http://localhost:3000";
+}
+
 
 const form = document.getElementById("add-project-form");
 const statusMessage = document.getElementById("status-message");
@@ -11,7 +16,7 @@ const statusMessage = document.getElementById("status-message");
 async function handleFormSubmit(event) {
   event.preventDefault();
 
-  const formData = newFormData(form);
+  const formData = new FormData(form);
   const projectData = {
     title: formData.get("title"),
     imageUrl: formData.get("imageUrl"),
@@ -20,7 +25,9 @@ async function handleFormSubmit(event) {
   statusMessage.className = "text-black-600";
 
   try {
-    const response = await fetch(API_URL, {
+    const fullApiUrl = `${API_BASE_URL}/api/projects`;
+    
+    const response = await fetch(fullApiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,12 @@
 // --- CONFIGURATION ---
-const API_BASE_URL = "http://localhost:3000/api/journal";
+
+let APIURL = "__API_URL__";
+
+if (APIURL.startsWith("__")) {
+  APIURL = "http://localhost:3000";
+}
+
+const API_BASE_URL = `${APIURL}/api/journal`;
 
 // --- DOM ELEMENTS ---
 const projectContent = document.getElementById("project-content");
