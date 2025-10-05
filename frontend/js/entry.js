@@ -39,7 +39,7 @@ async function loadProjectDetails() {
     projectContent.innerHTML = `
             <div class="flex justify-between items-center mb-8">
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900">${project.title}</h1>
-                <a href="diary.html" class="text-black-600 hover:text-indigo-800 flex-shrink-0 ml-4">&larr; back</a>
+                <a href="index.html" class="text-black-600 hover:text-indigo-800 flex-shrink-0 ml-4">&larr; back</a>
             </div>
             <div class = "flex flex-col md:flex-row gap-8 items-start">
                 <img id="project-image" src="${project.imageUrl}" alt="${project.title}" class="w-full md:w-2/5 h-auto rounded-lg shadow-lg flex-shrink-0">
