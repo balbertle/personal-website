@@ -8,6 +8,6 @@ const projectsContainer = document.getElementById("projects-container");
 
 document.addEventListener("DOMContentLoaded", () => {
   projectsContainer.innerHTML =
-    '<p class="text-center col-span-full text-white">Loading projects...</p>';
+    '<p class="text-center col-span-full text-white">Loading projects (may take up to 50 seconds if website has been inactive)...</p>';
   fetchAndDisplayProjects(API_URL, projectsContainer);
 });
