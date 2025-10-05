@@ -1,6 +1,6 @@
 
 [[plugins]]
-  package = "@netlify/plugin-find-and-replace"
+  package = "netlify-plugin-replace-env"
   
   [plugins.inputs]
     files = ["**/*.js"]
