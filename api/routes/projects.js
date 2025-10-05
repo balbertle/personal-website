@@ -32,12 +32,13 @@ let projects = [
       "github: https://github.com/balbertle/cbbPredictorUpdated",
     ],
     images: [
-      "http://localhost:3000/images/mm/Figure_1.png",
-      "http://localhost:3000/images/mm/Figure_2.png",
-      "http://localhost:3000/images/mm/matrix.jpg",
-      "http://localhost:3000/images/mm/stats.jpg",
+      "https://personal-website-55m0.onrender.com/images/mm/Figure_1.png",
+      "https://personal-website-55m0.onrender.com/images/mm/Figure_2.png",
+      "https://personal-website-55m0.onrender.com/images/mm/matrix.jpg",
+      "https://personal-website-55m0.onrender.com/images/mm/stats.jpg",
     ],
-    mainImageUrl: "http://localhost:3000/images/mm/Figure_1.png",
+    mainImageUrl:
+      "https://personal-website-55m0.onrender.com/images/mm/Figure_1.png",
   },
   {
     id: 2,
@@ -52,13 +53,14 @@ let projects = [
       "github: https://github.com/balbertle/black-scholes-api",
     ],
     images: [
-      "http://localhost:3000/images/bs/call.jpg",
-      "http://localhost:3000/images/bs/architecture.jpg",
-      "http://localhost:3000/images/bs/calculations.jpg",
-      "http://localhost:3000/images/bs/delta.jpg",
-      "http://localhost:3000/images/bs/options.png",
+      "https://personal-website-55m0.onrender.com/images/bs/call.jpg",
+      "https://personal-website-55m0.onrender.com/images/bs/architecture.jpg",
+      "https://personal-website-55m0.onrender.com/images/bs/calculations.jpg",
+      "https://personal-website-55m0.onrender.com/images/bs/delta.jpg",
+      "https://personal-website-55m0.onrender.com/images/bs/options.png",
     ],
-    mainImageUrl: "http://localhost:3000/images/bs/call.jpg",
+    mainImageUrl:
+      "https://personal-website-55m0.onrender.com/images/bs/call.jpg",
   },
   {
     id: 3,
@@ -78,16 +80,16 @@ let projects = [
       "github: private",
     ],
     images: [
-      "http://localhost:3000/images/sm/hp.png",
-      "http://localhost:3000/images/sm/login.png",
-      "http://localhost:3000/images/sm/generating.png",
-      "http://localhost:3000/images/sm/recipe.png",
-      "http://localhost:3000/images/sm/review.png",
-      "http://localhost:3000/images/sm/map.png",
-      "http://localhost:3000/images/sm/image.png",
-      "http://localhost:3000/images/sm/profile.png",
+      "https://personal-website-55m0.onrender.com/images/sm/hp.png",
+      "https://personal-website-55m0.onrender.com/images/sm/login.png",
+      "https://personal-website-55m0.onrender.com/images/sm/generating.png",
+      "https://personal-website-55m0.onrender.com/images/sm/recipe.png",
+      "https://personal-website-55m0.onrender.com/images/sm/review.png",
+      "https://personal-website-55m0.onrender.com/images/sm/map.png",
+      "https://personal-website-55m0.onrender.com/images/sm/image.png",
+      "https://personal-website-55m0.onrender.com/images/sm/profile.png",
     ],
-    mainImageUrl: "http://localhost:3000/images/sm/hp.png",
+    mainImageUrl: "https://personal-website-55m0.onrender.com/images/sm/hp.png",
   },
   {
     id: 4,
@@ -101,11 +103,12 @@ let projects = [
       "github: https://github.com/balbertle/handsDetector",
     ],
     images: [
-      "http://localhost:3000/images/hands/handlibrarypeacesign.jpg",
-      "http://localhost:3000/images/hands/openhand.jpg",
-      "http://localhost:3000/images/hands/handpeacesign.jpg",
+      "https://personal-website-55m0.onrender.com/images/hands/handlibrarypeacesign.jpg",
+      "https://personal-website-55m0.onrender.com/images/hands/openhand.jpg",
+      "https://personal-website-55m0.onrender.com/images/hands/handpeacesign.jpg",
     ],
-    mainImageUrl: "http://localhost:3000/images/hands/pointer.png",
+    mainImageUrl:
+      "https://personal-website-55m0.onrender.com/images/hands/pointer.png",
   },
   {
     id: 5,
@@ -120,16 +123,17 @@ let projects = [
       `github: private`,
     ],
     images: [
-      "http://localhost:3000/images/gtms/homepage.jpg",
-      "http://localhost:3000/images/gtms/signup.jpg",
-      "http://localhost:3000/images/gtms/loggedin.jpg",
-      "http://localhost:3000/images/gtms/reviewq.jpg",
-      "http://localhost:3000/images/gtms/movie.jpg",
-      "http://localhost:3000/images/gtms/backend.jpg",
-      "http://localhost:3000/images/gtms/cart.jpg",
-      "http://localhost:3000/images/gtms/editreview.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/homepage.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/signup.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/loggedin.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/reviewq.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/movie.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/backend.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/cart.jpg",
+      "https://personal-website-55m0.onrender.com/images/gtms/editreview.jpg",
     ],
-    mainImageUrl: "http://localhost:3000/images/gtms/homepage.jpg",
+    mainImageUrl:
+      "https://personal-website-55m0.onrender.com/images/gtms/homepage.jpg",
   },
   {
     id: 6,
@@ -141,10 +145,11 @@ let projects = [
       `In the pynb file, I implemented a unigram, bigram, and trigram model and trained them locally. This was a good learning experience to understand the basics of natural language processing and probabilistic models.`,
     ],
     images: [
-      "http://localhost:3000/images/textgenerator/bigram.jpg",
-      "http://localhost:3000/images/textgenerator/trigram.jpg",
+      "https://personal-website-55m0.onrender.com/images/textgenerator/bigram.jpg",
+      "https://personal-website-55m0.onrender.com/images/textgenerator/trigram.jpg",
     ],
-    mainImageUrl: "http://localhost:3000/images/textgenerator/trigram.jpg",
+    mainImageUrl:
+      "https://personal-website-55m0.onrender.com/images/textgenerator/trigram.jpg",
   },
   {
     id: 7,
@@ -159,28 +164,39 @@ let projects = [
       `github: https://github.com/balbertle/movieQuant`,
     ],
     images: [
-      "http://localhost:3000/images/moviebot/tron.jpg",
-      "http://localhost:3000/images/moviebot/tmdb.jpg",
-      "http://localhost:3000/images/moviebot/outcome.jpg",
-      "http://localhost:3000/images/moviebot/training.jpg",
+      "https://personal-website-55m0.onrender.com/images/moviebot/tron.jpg",
+      "https://personal-website-55m0.onrender.com/images/moviebot/tmdb.jpg",
+      "https://personal-website-55m0.onrender.com/images/moviebot/outcome.jpg",
+      "https://personal-website-55m0.onrender.com/images/moviebot/training.jpg",
     ],
-    mainImageUrl: "http://localhost:3000/images/moviebot/tron.jpg",
+    mainImageUrl:
+      "https://personal-website-55m0.onrender.com/images/moviebot/tron.jpg",
   },
 ];
 
+function makeImageUrl(req, imagePath) {
+  const base =
+    process.env.BASE_API_URL || "https://personal-website-55m0.onrender.com"; // Changed default to new host
+  return `${base}/${imagePath.replace(/^\/+/, "")}`;
+}
+
 // GET all projects (for the main grid view)
 router.get("/", (req, res) => {
-  res.json(projects);
+  const withUrls = projects.map((p) => ({
+    ...p,
+    imageUrl: p.image ? makeImageUrl(req, p.image) : undefined,
+  }));
+  res.json(withUrls);
 });
 
 // GET a single project by ID (for the detail page)
 router.get("/:id", (req, res) => {
   const project = projects.find((p) => p.id === parseInt(req.params.id));
-
-  if (!project) {
-    return res.status(404).json({ message: "Project not found" });
-  }
-  res.json(project);
+  if (!project) return res.status(404).json({ message: "not found" });
+  res.json({
+    ...project,
+    imageUrl: project.image ? makeImageUrl(req, project.image) : undefined,
+  });
 });
 
 module.exports = router;

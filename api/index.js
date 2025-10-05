@@ -1,3 +1,9 @@
+require("dotenv").config(); // load local .env if present
+
+// ensure a default BASE_API_URL so deployed links don't point to localhost
+process.env.BASE_API_URL =
+  process.env.BASE_API_URL || "https://personal-website-55m0.onrender.com";
+
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000; // default set port to 3000
@@ -17,7 +23,7 @@ app.use("/api/projects", projectRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ message: 'Something went wrong on the server!' });
+  res.status(500).json({ message: "Something went wrong on the server!" });
 });
 
 app.get("/", (req, res) => {
