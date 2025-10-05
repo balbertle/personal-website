@@ -4,7 +4,3 @@
 
 [[plugins]]
   package = "netlify-plugin-replace-env"
-
-[plugins.inputs]
-  include = ["**/*.html", "js/**/*.js"]
-  debug = true
