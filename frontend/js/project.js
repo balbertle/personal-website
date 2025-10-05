@@ -22,7 +22,7 @@ async function loadProjectDetails() {
 
   try {
     // 2. Fetch the data for the specific project from your API
-    const response = await fetch(`${API_BASE_URL}/${projectId}`);
+    const response = await fetch(`${API_URL}/${projectId}`);
     if (!response.ok) {
       throw new Error(
         `Project could not be loaded. Status: ${response.status}`
