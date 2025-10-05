@@ -1,11 +1,8 @@
 // --- CONFIGURATION ---
-
-let API_BASE_URL = "__API_URL__";
-
-if (API_BASE_URL.startsWith("__")) {
+let API_BASE_URL = "#{API_URL}";
+if (API_BASE_URL.startsWith("#{")) {
   API_BASE_URL = "http://localhost:3000";
 }
-
 const API_URL = `${API_BASE_URL}/api/projects`;
 
 /**

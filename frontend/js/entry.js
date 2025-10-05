@@ -1,9 +1,8 @@
 // --- CONFIGURATION ---
 
-let APIURL = "__API_URL__";
-
-if (APIURL.startsWith("__")) {
-  APIURL = "http://localhost:3000";
+let APIURL = "#{API_URL}";
+if (APIURL.startsWith("#{")) {
+  APIURL = "http://localhost:3000"; 
 }
 
 const API_BASE_URL = `${APIURL}/api/journal`;

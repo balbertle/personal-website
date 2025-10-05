@@ -1,10 +1,2 @@
-
 [[plugins]]
   package = "netlify-plugin-replace-env"
-  
-  [plugins.inputs]
-    files = ["**/*.js"]
-    
-    [[plugins.inputs.replacements]]
-      find = "__API_URL__"
-      replaceWithEnv = "API_URL"
