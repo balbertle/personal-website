@@ -1,9 +1,6 @@
 // --- CONFIGURATION ---
 
-let APIURL = "#{API_URL}";
-if (APIURL.startsWith("#{")) {
-  APIURL = "http://localhost:3000"; 
-}
+const APIURL = "https://personal-website-55m0.onrender.com";
 
 const API_BASE_URL = `${APIURL}/api/journal`;
 

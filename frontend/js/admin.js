@@ -1,8 +1,4 @@
-let API_BASE_URL = "#{API_URL}";
-if (API_BASE_URL.startsWith("#{")) {
-  API_BASE_URL = "http://localhost:3000"; 
-}
-
+const API_BASE_URL = "https://personal-website-55m0.onrender.com";
 
 const form = document.getElementById("add-project-form");
 const statusMessage = document.getElementById("status-message");

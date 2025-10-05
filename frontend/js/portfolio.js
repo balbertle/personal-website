@@ -1,9 +1,6 @@
 import { fetchAndDisplayProjects } from "./helpers.js";
 
-let API_BASE_URL = "#{API_URL}";
-if (API_BASE_URL.startsWith("#{")) {
-  API_BASE_URL = "http://localhost:3000"; 
-}
+const API_BASE_URL = "https://personal-website-55m0.onrender.com";
 
 const API_URL = `${API_BASE_URL}/api/projects`;
 
