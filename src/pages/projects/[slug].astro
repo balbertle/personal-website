@@ -1,0 +1,53 @@
+---
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects", (p) => !p.data.draft);
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, summary, description, sections, github, demo } = project.data;
+
+// Turn bare URLs in plain-text captions into links.
+const linkify = (text: string) =>
+  text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+---
+<Base title={title} description={summary ?? description} dark>
+  <main class="container project" style="padding: 2rem">
+    <header class="detail-header">
+      <h1>{title}</h1>
+      <a class="back" href="/portfolio/">&larr; back</a>
+    </header>
+
+    {description && <p class="lead">{description}</p>}
+
+    {sections.map((s) => (
+      <div class="section">
+        {s.images.length > 0 && (
+          <div class="section-images">
+            {s.images.map((img) => (
+              <Image src={img} alt={title} widths={[500, 900, 1400]} sizes="(min-width: 768px) 50vw, 100vw" />
+            ))}
+          </div>
+        )}
+        {s.text && <p set:html={linkify(s.text)} />}
+      </div>
+    ))}
+
+    <div class="prose"><Content /></div>
+
+    {(demo || github) && (
+      <div class="links">
+        {demo && <p>demo: <a href={demo} target="_blank" rel="noopener">{demo}</a></p>}
+        {github && <p>github: <a href={github} target="_blank" rel="noopener">{github}</a></p>}
+      </div>
+    )}
+  </main>
+</Base>

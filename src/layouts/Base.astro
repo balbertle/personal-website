@@ -1,0 +1,24 @@
+---
+import "../styles/site.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  dark?: boolean;
+}
+const { title, description = "Albert Le: projects and photo journal.", dark = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body class={dark ? "dark" : undefined}>
+    <slot />
+  </body>
+</html>

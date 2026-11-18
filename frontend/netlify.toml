@@ -1,6 +1,0 @@
-[build]
-  publish = "."
-  command = "echo 'No build step required'"
-
-[[plugins]]
-  package = "netlify-plugin-replace-env"

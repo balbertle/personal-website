@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+
+const projects = (await getCollection("projects", (p) => !p.data.draft)).sort(
+  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
+);
+---
+<Base title="Congson Le" dark>
+  <div class="container">
+    <header class="site-header">
+      <h1>Congson Le</h1>
+      <nav><a href="/">journal</a></nav>
+    </header>
+
+    <main class="grid">
+      {projects.map((p, i) => (
+        <a class="card" href={`/projects/${p.id}/`}>
+          <Image
+            src={p.data.cover}
+            alt={p.data.title}
+            widths={[400, 800, 1200]}
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            loading={i < 3 ? "eager" : "lazy"}
+          />
+          <p class="card-title">{p.data.title}</p>
+          {p.data.summary && <p class="card-summary">{p.data.summary}</p>}
+        </a>
+      ))}
+    </main>
+  </div>
+</Base>

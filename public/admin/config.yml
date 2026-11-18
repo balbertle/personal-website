@@ -1,0 +1,72 @@
+# Admin page settings (Sveltia CMS). Open yoursite.com/admin/ to use it.
+# Saving in the admin page makes a commit on GitHub. Netlify then rebuilds
+# the site, which takes about a minute.
+
+backend:
+  name: github
+  repo: balbertle/personal-website
+  branch: main
+  # GitHub sign-in goes through Netlify's OAuth (set up once in Netlify).
+
+# Default upload folder. Journal and project photos override this and are
+# saved next to their entry instead.
+media_folder: src/assets/uploads
+public_folder: /src/assets/uploads
+
+collections:
+  - name: journal
+    label: Journal
+    label_singular: Journal entry
+    description: Photos on the home page. Newest first.
+    folder: src/content/journal
+    path: "{{slug}}/index"
+    slug: "{{year}}-{{month}}-{{title}}"
+    media_folder: ""
+    public_folder: ""
+    create: true
+    sortable_fields: [date, title]
+    summary: "{{title}}: {{caption}}"
+    fields:
+      - { name: title, label: Title, widget: string, hint: 'Shown under the photo, for example "July 2025".' }
+      - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", hint: Sets the order. Newest is shown first. }
+      - { name: caption, label: Caption, widget: string, required: false }
+      - { name: photo, label: Photo, widget: image }
+      - { name: body, label: Text, widget: markdown, required: false, hint: Optional longer writing. }
+      - { name: draft, label: Hide from site, widget: boolean, default: false, required: false }
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    description: Projects on the portfolio page.
+    folder: src/content/projects
+    path: "{{slug}}/index"
+    slug: "{{title}}"
+    media_folder: ""
+    public_folder: ""
+    create: true
+    sortable_fields: [order, title]
+    summary: "{{order}}. {{title}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: order, label: Position, widget: number, value_type: int, default: 0, hint: Lower numbers show first. 0 puts it at the top. }
+      - { name: summary, label: Short summary, widget: string, required: false, hint: One line under the card on the portfolio page. }
+      - { name: cover, label: Cover image, widget: image, hint: The picture on the portfolio page. }
+      - { name: description, label: Intro, widget: text, required: false, hint: Shown at the top of the project page. }
+      - { name: github, label: GitHub link, widget: string, required: false }
+      - { name: demo, label: Demo link, widget: string, required: false, hint: A video or live site. }
+      - name: sections
+        label: Sections
+        label_singular: Section
+        widget: list
+        required: false
+        hint: Each section is up to two images side by side with text below.
+        fields:
+          - name: images
+            label: Images
+            label_singular: Image
+            widget: list
+            required: false
+            field: { name: image, label: Image, widget: image }
+          - { name: text, label: Text, widget: text, required: false }
+      - { name: body, label: More text, widget: markdown, required: false, hint: Extra paragraphs at the bottom of the page. }
+      - { name: draft, label: Hide from site, widget: boolean, default: false, required: false }

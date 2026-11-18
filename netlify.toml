@@ -1,0 +1,68 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Old page addresses keep working.
+[[redirects]]
+  from = "/portfolio.html"
+  to = "/portfolio/"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/march-madness-markov-chain/"
+  query = { id = "1" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/black-scholes-visualizer/"
+  query = { id = "2" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/snack-match/"
+  query = { id = "3" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/hands-detector/"
+  query = { id = "4" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/gt-movie-store/"
+  query = { id = "5" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/ngram-text-generator/"
+  query = { id = "6" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/projects/film-profitability-predictor/"
+  query = { id = "7" }
+  status = 301
+[[redirects]]
+  from = "/project-detail.html"
+  to = "/portfolio/"
+  status = 301
+
+[[redirects]]
+  from = "/entry.html"
+  to = "/"
+  status = 301
+
+# Cache optimized images forever (their file names change when they change).
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
