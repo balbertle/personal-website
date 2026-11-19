@@ -85,6 +85,12 @@
       "inProgress": false
     },
     {
+      "name": "Computer Networking I",
+      "code": "CS 3251",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
       "name": "Design and Analysis of Algorithms",
       "code": "CS 3510",
       "group": "Computer Science",
@@ -101,6 +107,12 @@
       "code": "CS 3790",
       "group": "Computer Science",
       "inProgress": true
+    },
+    {
+      "name": "Automata and Complexity",
+      "code": "CS 4510",
+      "group": "Computer Science",
+      "inProgress": false
     },
     {
       "name": "Machine Learning",
@@ -139,6 +151,18 @@
       "inProgress": false
     },
     {
+      "name": "Scientific Foundations of Health",
+      "code": "APPH 1040",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "Chemical Principles I",
+      "code": "CHEM 1211K",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
       "name": "ECE Discovery Studio",
       "code": "ECE 1100",
       "group": "Engineering and Science",
@@ -147,12 +171,6 @@
     {
       "name": "Digital System Design",
       "code": "ECE 2020",
-      "group": "Engineering and Science",
-      "inProgress": false
-    },
-    {
-      "name": "Chemical Principles I",
-      "code": "CHEM 1211K",
       "group": "Engineering and Science",
       "inProgress": false
     },
@@ -169,9 +187,9 @@
       "inProgress": false
     },
     {
-      "name": "Scientific Foundations of Health",
-      "code": "APPH 1040",
-      "group": "Engineering and Science",
+      "name": "Principles of Microeconomics",
+      "code": "ECON 2106",
+      "group": "Humanities and Social Sciences",
       "inProgress": false
     },
     {
@@ -187,12 +205,6 @@
       "inProgress": false
     },
     {
-      "name": "Principles of Microeconomics",
-      "code": "ECON 2106",
-      "group": "Humanities and Social Sciences",
-      "inProgress": false
-    },
-    {
       "name": "American Government",
       "code": "INTA 1200",
       "group": "Humanities and Social Sciences",
@@ -201,6 +213,18 @@
     {
       "name": "Elementary Korean I",
       "code": "KOR 1001",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "Elementary Korean II",
+      "code": "KOR 1002",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "Technical Communication",
+      "code": "LMC 3403",
       "group": "Humanities and Social Sciences",
       "inProgress": false
     },
