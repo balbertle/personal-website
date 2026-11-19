@@ -33,14 +33,182 @@
     "school": "Georgia Institute of Technology",
     "degree": "B.S. Computer Science",
     "graduation": "",
-    "note": ""
+    "note": "Threads: Intelligence and Modeling & Simulation"
   },
   "coursework": [
-    { "name": "Machine Learning", "code": "CS 4641", "inProgress": true },
-    { "name": "Systems and Networking", "code": "CS 2200", "inProgress": true },
-    { "name": "Introduction to Cognitive Science", "code": "CS 3790", "inProgress": true },
-    { "name": "Multivariable Calculus", "code": "MATH 2550", "inProgress": true },
-    { "name": "Introduction to Artificial Intelligence", "code": "CS 3600", "inProgress": false },
-    { "name": "Objects and Design", "code": "CS 2340", "inProgress": false }
+    {
+      "name": "Introduction to Computing",
+      "code": "CS 1301",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Introduction to Object-Oriented Programming",
+      "code": "CS 1331",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Data Structures and Algorithms",
+      "code": "CS 1332",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Introduction to Discrete Mathematics for CS",
+      "code": "CS 2050",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Computer Organization and Programming",
+      "code": "CS 2110",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Systems and Networking",
+      "code": "CS 2200",
+      "group": "Computer Science",
+      "inProgress": true
+    },
+    {
+      "name": "Objects and Design",
+      "code": "CS 2340",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Computing and Society",
+      "code": "CS 3001",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Design and Analysis of Algorithms",
+      "code": "CS 3510",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Introduction to Artificial Intelligence",
+      "code": "CS 3600",
+      "group": "Computer Science",
+      "inProgress": false
+    },
+    {
+      "name": "Introduction to Cognitive Science",
+      "code": "CS 3790",
+      "group": "Computer Science",
+      "inProgress": true
+    },
+    {
+      "name": "Machine Learning",
+      "code": "CS 4641",
+      "group": "Computer Science",
+      "inProgress": true
+    },
+    {
+      "name": "Differential Calculus",
+      "code": "MATH 1551",
+      "group": "Mathematics",
+      "inProgress": false
+    },
+    {
+      "name": "Integral Calculus",
+      "code": "MATH 1552",
+      "group": "Mathematics",
+      "inProgress": false
+    },
+    {
+      "name": "Linear Algebra",
+      "code": "MATH 1554",
+      "group": "Mathematics",
+      "inProgress": false
+    },
+    {
+      "name": "Multivariable Calculus",
+      "code": "MATH 2550",
+      "group": "Mathematics",
+      "inProgress": true
+    },
+    {
+      "name": "Differential Equations",
+      "code": "MATH 2552",
+      "group": "Mathematics",
+      "inProgress": false
+    },
+    {
+      "name": "ECE Discovery Studio",
+      "code": "ECE 1100",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "Digital System Design",
+      "code": "ECE 2020",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "Chemical Principles I",
+      "code": "CHEM 1211K",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "Introductory Physics I",
+      "code": "PHYS 2211",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "Principles of Physics II",
+      "code": "PHYS 2212",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "Scientific Foundations of Health",
+      "code": "APPH 1040",
+      "group": "Engineering and Science",
+      "inProgress": false
+    },
+    {
+      "name": "English Composition I",
+      "code": "ENGL 1101",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "English Composition II",
+      "code": "ENGL 1102",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "Principles of Microeconomics",
+      "code": "ECON 2106",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "American Government",
+      "code": "INTA 1200",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "Elementary Korean I",
+      "code": "KOR 1001",
+      "group": "Humanities and Social Sciences",
+      "inProgress": false
+    },
+    {
+      "name": "General Psychology",
+      "code": "PSYC 1101",
+      "group": "Humanities and Social Sciences",
+      "inProgress": true
+    }
   ]
 }

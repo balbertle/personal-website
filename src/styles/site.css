@@ -112,3 +112,6 @@ body.portfolio {
   .proj-head h1 { font-size: 36px; }
 }
 @media (max-width: 480px) { .courses { grid-template-columns: 1fr; } }
+
+.course-group + .course-group { margin-top: 40px; }
+.course-group h3 { margin: 20px 0 4px; font-size: 17px; font-weight: 600; }
