@@ -25,7 +25,10 @@ const prepared = await Promise.all(
 ---
 <Base title="Albert Le" description="Photos and videos by Albert Le." theme="journal">
   <div class="j-wrap">
-    <h1 class="j-name">Albert Le</h1>
+    <header class="j-head">
+      <h1 class="j-name">Albert Le</h1>
+      <a class="j-btn" href="/portfolio/">Portfolio &rarr;</a>
+    </header>
 
     <main class="j-grid">
       {prepared.map((e, i) => (
