@@ -126,4 +126,5 @@ collections:
             fields:
               - { name: name, label: Course name, widget: string }
               - { name: code, label: Course number, widget: string }
+              - { name: group, label: Subject, widget: select, required: false, options: [Computer Science, Mathematics, Engineering and Science, Humanities and Social Sciences] }
               - { name: inProgress, label: In progress, widget: boolean, default: false, required: false }
