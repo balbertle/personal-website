@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import site from "../data/portfolio.json";
+
+const projects = (await getCollection("projects", (p) => !p.data.draft)).sort(
+  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
+);
+
+// Filter buttons come from the tags used on projects, most used first.
+const counts = new Map<string, number>();
+for (const p of projects) for (const t of p.data.tags) counts.set(t, (counts.get(t) ?? 0) + 1);
+const tags = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([t]) => t);
+
+const { education, experience, coursework } = site;
+---
+<Base title="Albert Le — Portfolio" description="Projects and experience of Albert Le." theme="portfolio">
+  <div class="p-wrap">
+    <div class="p-buttons">
+      {site.resume && <a class="btn btn-dark" href={site.resume} target="_blank" rel="noopener">Download resume</a>}
+      {site.email && <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>}
+      <a class="btn" href="/">&larr; Journal</a>
+    </div>
+
+    {experience.length > 0 && (
+      <section id="experience">
+        <div class="section-head"><h2 class="label">Experience</h2></div>
+        {experience.map((x) => (
+          <div class="row">
+            <div>
+              <h3>{x.org}</h3>
+              {(x.role || x.dates) && <p class="meta">{[x.role, x.dates].filter(Boolean).join(" · ")}</p>}
+            </div>
+            {x.description && <p class="desc">{x.description}</p>}
+          </div>
+        ))}
+      </section>
+    )}
+
+    <section id="projects">
+      <div class="section-head">
+        <h2 class="label">Projects</h2>
+        {tags.length > 1 && (
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="chip" type="button" data-filter="" aria-pressed="true">All</button>
+            {tags.map((t) => (
+              <button class="chip" type="button" data-filter={t} aria-pressed="false">{t}</button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="p-grid">
+        {projects.map((p, i) => (
+          <a class="p-card" href={`/projects/${p.id}/`} data-tags={p.data.tags.join("|")}>
+            <Image
+              src={p.data.cover}
+              alt=""
+              widths={[400, 700, 1000]}
+              sizes="(min-width: 1040px) 496px, (min-width: 700px) 50vw, 100vw"
+              loading={i < 4 ? "eager" : "lazy"}
+            />
+            <div>
+              <h3>{p.data.title}</h3>
+              {p.data.summary && <p class="summary">{p.data.summary}</p>}
+              {p.data.stack && <p class="mono">{p.data.stack}</p>}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head"><h2 class="label">Education</h2></div>
+      <div class="row" style="border-bottom: 0">
+        <div>
+          <h3>{education.school}</h3>
+          <p class="meta">{[education.degree, education.graduation].filter(Boolean).join(" · ")}</p>
+        </div>
+        {education.note && <p class="desc">{education.note}</p>}
+      </div>
+    </section>
+
+    {coursework.length > 0 && (
+      <section id="coursework">
+        <div class="section-head"><h2 class="label">Coursework</h2></div>
+        <ul class="courses">
+          {coursework.map((c) => (
+            <li>
+              <span>{c.name}</span>
+              <span class="mono">{c.inProgress ? `${c.code} · in progress` : c.code}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <footer class="p-footer">
+      <span>Albert Le</span>
+      <nav>
+        {site.github && <a href={site.github}>GitHub</a>}
+        {site.linkedin && <a href={site.linkedin}>LinkedIn</a>}
+        {site.email && <a href={`mailto:${site.email}`}>Email</a>}
+      </nav>
+    </footer>
+  </div>
+
+  <script>
+    const chips = document.querySelectorAll<HTMLButtonElement>(".chip");
+    const cards = document.querySelectorAll<HTMLElement>(".p-card");
+    chips.forEach((chip) =>
+      chip.addEventListener("click", () => {
+        const tag = chip.dataset.filter ?? "";
+        chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+        cards.forEach((card) => {
+          card.hidden = tag !== "" && !(card.dataset.tags ?? "").split("|").includes(tag);
+        });
+      }),
+    );
+  </script>
+</Base>
