@@ -3,6 +3,8 @@ title: Hands Detector
 order: 4
 summary: A basic hand sign detector using mediapipe and tensorflow.
 cover: ./pointer.png
+tags: [ML]
+stack: MediaPipe · TensorFlow · OpenCV
 github: https://github.com/balbertle/handsDetector
 sections:
   - images:

@@ -3,6 +3,9 @@ title: Snack Match
 order: 3
 summary: A web application that gives users food recommendations using APIs and generative AI.
 cover: ./hp.png
+tags: [Web, ML]
+stack: React · PostgreSQL · Leaflet · Gemini API
+role: Team lead
 demo: https://www.youtube.com/watch?v=gNfp0dyzUlc
 sections:
   - images:

@@ -4,9 +4,9 @@ import "../styles/site.css";
 interface Props {
   title: string;
   description?: string;
-  dark?: boolean;
+  theme: "journal" | "portfolio";
 }
-const { title, description = "Albert Le: projects and photo journal.", dark = false } = Astro.props;
+const { title, description = "Albert Le", theme } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -17,8 +17,18 @@ const { title, description = "Albert Le: projects and photo journal.", dark = fa
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    {theme === "portfolio" && (
+      <>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        />
+      </>
+    )}
   </head>
-  <body class={dark ? "dark" : undefined}>
+  <body class={theme}>
     <slot />
   </body>
 </html>

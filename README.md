@@ -2,18 +2,31 @@
 
 A static site built with [Astro](https://astro.build) and hosted on Netlify. There is no server, so pages load instantly.
 
-## Adding photos and projects
+Two separate parts:
 
-**From the browser (works on your phone):** go to `https://<your-domain>/admin/`, sign in with GitHub, and add a journal entry or a project. Saving commits to GitHub, and Netlify rebuilds the site in about a minute.
+- **Journal** at `/`: photos and videos, each with one short caption.
+- **Portfolio** at `/portfolio/`: experience, projects (with filters), education, and coursework. Each project has its own page.
 
-**From your laptop:** each entry is a folder.
+## Adding content
+
+**From the browser (works on your phone):** go to `https://<your-domain>/admin/` and sign in with GitHub. There are three sections:
+
+- **Journal:** add a photo, a short `.mp4` clip, or a YouTube link, plus a date and caption.
+- **Projects:** add or edit a project.
+- **Portfolio page:** your email, resume PDF, links, experience, education, and coursework. The email and resume buttons appear once you fill them in.
+
+Saving commits to GitHub, and Netlify rebuilds the site in about a minute.
+
+**From your laptop:**
 
 ```
 src/content/journal/<name>/index.md      + the photo
 src/content/projects/<name>/index.md     + the images
+src/data/portfolio.json                  experience, education, coursework, links
+public/journal-media/                    video files
 ```
 
-Copy an existing folder, change the text and images, and push. iPhone `.heic` photos are converted to `.jpg` automatically at build time. All images are resized and compressed during the build, so upload full-size originals.
+Copy an existing folder, change the text and images, and push. iPhone `.heic` photos are converted to `.jpg` automatically at build time. All images are resized and compressed during the build, so upload full-size originals. Keep video clips short; Git is not a good place for large files, so put longer videos on YouTube (unlisted works) and paste the link.
 
 ## Running locally
 

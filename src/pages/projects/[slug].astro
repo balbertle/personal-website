@@ -4,13 +4,18 @@ import { Image } from "astro:assets";
 import Base from "../../layouts/Base.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects", (p) => !p.data.draft);
-  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+  const projects = (await getCollection("projects", (p) => !p.data.draft)).sort(
+    (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
+  );
+  return projects.map((project, i) => ({
+    params: { slug: project.id },
+    props: { project, prev: projects[i - 1], next: projects[i + 1] },
+  }));
 }
 
-const { project } = Astro.props;
+const { project, prev, next } = Astro.props;
 const { Content } = await render(project);
-const { title, summary, description, sections, github, demo } = project.data;
+const { title, summary, description, sections, github, demo, stack, role, cover } = project.data;
 
 // Turn bare URLs in plain-text captions into links.
 const linkify = (text: string) =>
@@ -18,36 +23,62 @@ const linkify = (text: string) =>
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+
+// Skip the cover in the gallery when it is also the first section image.
+const firstSection = sections[0];
+const coverRepeats = firstSection?.images[0]?.src === cover.src;
 ---
-<Base title={title} description={summary ?? description} dark>
-  <main class="container project" style="padding: 2rem">
-    <header class="detail-header">
+<Base title={`${title} — Albert Le`} description={summary ?? description} theme="portfolio">
+  <main class="p-wrap proj">
+    <header class="proj-head">
+      <a class="back" href="/portfolio/">&larr; All projects</a>
       <h1>{title}</h1>
-      <a class="back" href="/portfolio/">&larr; back</a>
+      {summary && <p class="lead">{summary}</p>}
+      {(role || stack || demo || github) && (
+        <dl class="facts">
+          {role && <div><dt>Role</dt><dd>{role}</dd></div>}
+          {stack && <div><dt>Stack</dt><dd>{stack.split(" · ").join(", ")}</dd></div>}
+          {(demo || github) && (
+            <div>
+              <dt>Links</dt>
+              <dd>
+                {demo && <a href={demo} target="_blank" rel="noopener">Demo</a>}
+                {demo && github && " · "}
+                {github && <a href={github} target="_blank" rel="noopener">GitHub</a>}
+              </dd>
+            </div>
+          )}
+        </dl>
+      )}
     </header>
 
-    {description && <p class="lead">{description}</p>}
+    <Image class="hero" src={cover} alt={title} widths={[600, 1000, 1600, 2000]} sizes="(min-width: 1040px) 992px, 100vw" loading="eager" />
 
-    {sections.map((s) => (
-      <div class="section">
-        {s.images.length > 0 && (
-          <div class="section-images">
-            {s.images.map((img) => (
-              <Image src={img} alt={title} widths={[500, 900, 1400]} sizes="(min-width: 768px) 50vw, 100vw" />
-            ))}
-          </div>
-        )}
-        {s.text && <p set:html={linkify(s.text)} />}
-      </div>
-    ))}
+    {description && <div class="text"><p>{description}</p></div>}
 
-    <div class="prose"><Content /></div>
+    {sections.map((s, i) => {
+      const images = i === 0 && coverRepeats ? s.images.slice(1) : s.images;
+      return (
+        <figure class="shots">
+          {images.length > 0 && (
+            <div class="imgs">
+              {images.map((img) => (
+                <Image src={img} alt="" widths={[500, 900, 1400]} sizes="(min-width: 1040px) 488px, (min-width: 640px) 50vw, 100vw" />
+              ))}
+            </div>
+          )}
+          {s.text && <figcaption class="text"><p set:html={linkify(s.text)} /></figcaption>}
+        </figure>
+      );
+    })}
 
-    {(demo || github) && (
-      <div class="links">
-        {demo && <p>demo: <a href={demo} target="_blank" rel="noopener">{demo}</a></p>}
-        {github && <p>github: <a href={github} target="_blank" rel="noopener">{github}</a></p>}
-      </div>
+    <div class="text"><Content /></div>
+
+    {(prev || next) && (
+      <nav class="proj-nav" aria-label="More projects">
+        {prev ? <a href={`/projects/${prev.id}/`}>&larr; {prev.data.title}</a> : <span />}
+        {next && <a href={`/projects/${next.id}/`}>{next.data.title} &rarr;</a>}
+      </nav>
     )}
   </main>
 </Base>

@@ -1,0 +1,46 @@
+{
+  "email": "",
+  "resume": "",
+  "github": "https://github.com/balbertle",
+  "linkedin": "",
+  "experience": [
+    {
+      "org": "Amazon",
+      "role": "",
+      "dates": "Summer 2026",
+      "description": "Built an LLM agent framework for finance compliance documents. Shipped to production."
+    },
+    {
+      "org": "Delta Air Lines",
+      "role": "",
+      "dates": "",
+      "description": "Worked on inventory data discrepancies."
+    },
+    {
+      "org": "Sports Intelligence Platform VIP",
+      "role": "Georgia Tech · Research",
+      "dates": "",
+      "description": "Fourth-down decision engine for college football."
+    },
+    {
+      "org": "Surrogate Modeling for Urban Regeneration VIP",
+      "role": "Georgia Tech · Research",
+      "dates": "",
+      "description": "Built the census-tract data pipeline."
+    }
+  ],
+  "education": {
+    "school": "Georgia Institute of Technology",
+    "degree": "B.S. Computer Science",
+    "graduation": "",
+    "note": ""
+  },
+  "coursework": [
+    { "name": "Machine Learning", "code": "CS 4641", "inProgress": true },
+    { "name": "Systems and Networking", "code": "CS 2200", "inProgress": true },
+    { "name": "Introduction to Cognitive Science", "code": "CS 3790", "inProgress": true },
+    { "name": "Multivariable Calculus", "code": "MATH 2550", "inProgress": true },
+    { "name": "Introduction to Artificial Intelligence", "code": "CS 3600", "inProgress": false },
+    { "name": "Objects and Design", "code": "CS 2340", "inProgress": false }
+  ]
+}

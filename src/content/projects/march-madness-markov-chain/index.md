@@ -3,6 +3,8 @@ title: Basketball Game Markov Chain
 order: 1
 summary: Program that uses markov chains to simulate a basketball game alongside other basic statistical analysis.
 cover: ./Figure_1.png
+tags: [Quant]
+stack: Python · Markov chains · Monte Carlo
 description: This project explores the use of Markov Chains to simulate and analyze basketball game outcomes. Using historical data, we built a model that predicts scores and team performance. The project showcases data visualization techniques and statistical analysis to provide insights into game dynamics.
 github: https://github.com/balbertle/cbbPredictorUpdated
 sections:

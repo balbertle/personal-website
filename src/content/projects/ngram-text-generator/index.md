@@ -3,6 +3,8 @@ title: N-gram Text Generator
 order: 6
 summary: A text generator using an n-gram probabilities method.
 cover: ./trigram.jpg
+tags: [ML]
+stack: Python · NLP
 sections:
   - images:
       - ./bigram.jpg

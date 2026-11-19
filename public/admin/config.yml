@@ -16,22 +16,28 @@ public_folder: /src/assets/uploads
 collections:
   - name: journal
     label: Journal
-    label_singular: Journal entry
-    description: Photos on the home page. Newest first.
+    label_singular: Journal item
+    description: Photos and videos on your home page, newest first. Add a photo, a video, or a YouTube link.
     folder: src/content/journal
     path: "{{slug}}/index"
-    slug: "{{year}}-{{month}}-{{title}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}"
     media_folder: ""
     public_folder: ""
     create: true
-    sortable_fields: [date, title]
-    summary: "{{title}}: {{caption}}"
+    sortable_fields: [date]
+    summary: "{{date}} · {{caption}}"
     fields:
-      - { name: title, label: Title, widget: string, hint: 'Shown under the photo, for example "July 2025".' }
-      - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", hint: Sets the order. Newest is shown first. }
-      - { name: caption, label: Caption, widget: string, required: false }
-      - { name: photo, label: Photo, widget: image }
-      - { name: body, label: Text, widget: markdown, required: false, hint: Optional longer writing. }
+      - { name: date, label: Date, widget: datetime, time_format: false, date_format: "YYYY-MM-DD", format: "YYYY-MM-DD", hint: Shown as month and year. Newest is shown first. }
+      - { name: caption, label: Caption, widget: string, required: false, hint: 'The small line under it, for example "nyc with ryanh".' }
+      - { name: photo, label: Photo, widget: image, required: false, hint: For a video this is used as its preview picture. }
+      - name: video
+        label: Video file
+        widget: file
+        required: false
+        media_folder: /public/journal-media
+        public_folder: /journal-media
+        hint: A short .mp4 clip (under about 50 MB). For longer videos, use a YouTube link instead.
+      - { name: youtube, label: YouTube link, widget: string, required: false, hint: An unlisted YouTube video works too. }
       - { name: draft, label: Hide from site, widget: boolean, default: false, required: false }
 
   - name: projects
@@ -49,9 +55,12 @@ collections:
     fields:
       - { name: title, label: Title, widget: string }
       - { name: order, label: Position, widget: number, value_type: int, default: 0, hint: Lower numbers show first. 0 puts it at the top. }
-      - { name: summary, label: Short summary, widget: string, required: false, hint: One line under the card on the portfolio page. }
-      - { name: cover, label: Cover image, widget: image, hint: The picture on the portfolio page. }
-      - { name: description, label: Intro, widget: text, required: false, hint: Shown at the top of the project page. }
+      - { name: summary, label: Short summary, widget: string, required: false, hint: One line on the card and under the title. }
+      - { name: cover, label: Cover image, widget: image, hint: The picture on the portfolio card and at the top of the project page. }
+      - { name: tags, label: Tags, widget: list, required: false, hint: 'Used for the filter buttons, for example ML, Quant, Web.' }
+      - { name: stack, label: Stack, widget: string, required: false, hint: 'Separate with " · ", for example Python · PyTorch.' }
+      - { name: role, label: Role, widget: string, required: false }
+      - { name: description, label: Intro, widget: text, required: false, hint: A paragraph below the cover image. }
       - { name: github, label: GitHub link, widget: string, required: false }
       - { name: demo, label: Demo link, widget: string, required: false, hint: A video or live site. }
       - name: sections
@@ -70,3 +79,51 @@ collections:
           - { name: text, label: Text, widget: text, required: false }
       - { name: body, label: More text, widget: markdown, required: false, hint: Extra paragraphs at the bottom of the page. }
       - { name: draft, label: Hide from site, widget: boolean, default: false, required: false }
+
+  - name: pages
+    label: Portfolio page
+    description: Your links, experience, education, and coursework.
+    files:
+      - name: portfolio
+        label: Portfolio details
+        file: src/data/portfolio.json
+        fields:
+          - { name: email, label: Email, widget: string, required: false, hint: Shows an email button when filled in. }
+          - name: resume
+            label: Resume (PDF)
+            widget: file
+            required: false
+            media_folder: /public
+            public_folder: /
+            hint: Shows a "Download resume" button when uploaded.
+          - { name: github, label: GitHub link, widget: string, required: false }
+          - { name: linkedin, label: LinkedIn link, widget: string, required: false }
+          - name: experience
+            label: Experience
+            label_singular: Job or team
+            widget: list
+            required: false
+            summary: "{{org}}"
+            fields:
+              - { name: org, label: Company or team, widget: string }
+              - { name: role, label: Role, widget: string, required: false }
+              - { name: dates, label: Dates, widget: string, required: false, hint: 'For example "Summer 2026".' }
+              - { name: description, label: What you did, widget: text, required: false }
+          - name: education
+            label: Education
+            widget: object
+            fields:
+              - { name: school, label: School, widget: string }
+              - { name: degree, label: Degree, widget: string }
+              - { name: graduation, label: Graduation, widget: string, required: false, hint: 'For example "May 2028".' }
+              - { name: note, label: Note, widget: string, required: false, hint: 'For example your threads.' }
+          - name: coursework
+            label: Coursework
+            label_singular: Course
+            widget: list
+            required: false
+            summary: "{{code}} {{name}}"
+            fields:
+              - { name: name, label: Course name, widget: string }
+              - { name: code, label: Course number, widget: string }
+              - { name: inProgress, label: In progress, widget: boolean, default: false, required: false }

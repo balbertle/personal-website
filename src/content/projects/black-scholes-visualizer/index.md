@@ -2,6 +2,9 @@
 title: Black-Scholes Option Pricing Model Visualizer
 order: 2
 cover: ./call.jpg
+summary: "Visualizes Black-Scholes option prices and the Greeks, backed by a Spring Boot REST API."
+tags: [Quant, Web]
+stack: Java · Spring Boot · Plotly
 github: https://github.com/balbertle/black-scholes-api
 sections:
   - images:

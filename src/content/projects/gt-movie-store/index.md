@@ -3,6 +3,8 @@ title: GT Movie Store
 order: 5
 summary: A web application that allows users to browse a custom list of movies and "checkout" movies to a virtual cart.
 cover: ./homepage.jpg
+tags: [Web]
+stack: Django · PostgreSQL · TMDB API
 demo: https://www.youtube.com/watch?v=Qqe6PR7Sd0M
 sections:
   - images:

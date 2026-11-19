@@ -57,6 +57,11 @@
   status = 301
 
 [[redirects]]
+  from = "/journal/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/entry.html"
   to = "/"
   status = 301

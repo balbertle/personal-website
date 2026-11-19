@@ -2,6 +2,9 @@
 title: Film Profitability & Market Impact Predictor
 order: 7
 cover: ./tron.jpg
+summary: "Regression model that predicts a film's profitability and its impact on the studio's stock."
+tags: [ML, Quant]
+stack: scikit-learn · TMDB API · yfinance
 github: https://github.com/balbertle/movieQuant
 sections:
   - images:
